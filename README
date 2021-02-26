@@ -1,0 +1,25 @@
+% L1 Colorings -----------------------------------------
+The folder "L1Tiles/" contains colorings from ALL combinations of sequential displacements from using displacements [0] - [12] and all powers 1 - 15.
+However, the file is only included IF the smallest number of colors between Natural ordering and Red-Black ordering is less than 10,000.
+Each file contains the coloring with the least amount of colors between the two orderings Natural and Red/Black.
+The naming scheme is "tile%d_%d_%d_%dk%d...p%dc%d.txt" where the first 4 decimals are the tile size, followed by the displacements used (each displacement
+is seperated by an underscore), then the power/distance used, and finally the number of colors.
+
+The tile size is determined by the following:
+Each dimension must be a power of 2, where dimensions 1, 2, and 4 are must be > 2p+1 and dimension 3 must be > 2(p+max(k))+1
+
+Can't find the coloring/tile size you want? 
+Use Stencil.c
+To Compile: gcc Stencil.c -o Stencil -O3 -lm
+To Run: ./Stencil <Length of Each Dimension (4D)> <How Many Displacements?> <List of Displacements (Third Dimension Only)> <L1 Coloring Distance> 
+Ex: ./Stencil 16 16 16 32 1 7 9 (For a displacement 7, distance 9 coloring that will be saved to the file "tile16_16_16_32k7p9c%d.txt")
+
+% L2 Colorings -----------------------------------------
+The folder "L2Tiles/" contains colorings from ALL displacements from using displacements [0] - [12] and all powers 1 - 12.
+All naming schemes and dimension restrictions are the same as that for the L1 Colorings
+
+Can't find the coloring/tile size you want? 
+Use StencilL2.c
+To Compile: gcc StencilL2.c -o StencilL2 -O3 -lm
+To Run: ./StencilL2 <Length of Each Dimension (4D)> <How Many Displacements?> <List of Displacements (Third Dimension Only)> <L2 Coloring Distance> 
+Ex: ./StencilL2 16 16 16 32 1 7 9 (For a displacement 7, distance 9 coloring that will be saved to the file "tile16_16_16_32k7p9c%d.txt")
