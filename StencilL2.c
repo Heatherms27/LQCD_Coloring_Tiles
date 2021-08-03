@@ -182,7 +182,7 @@ int createStencil(short stencil[][4], short p, short numk, short ks[], int maxN,
          for(j2 = -p; j2 <= p; ++j2){
             for(j3 = -p-k; j3 <= p-k; ++j3){
                for(j4 = -p; j4 <= p; ++j4){
-                  short coord[4] = {j1, j2, j3, j4};
+                  short coord[4] = {j1, j2, j3+k, j4};
                   if(L2Norm(coord) <= p){
                      unsigned short coord2[4] = {posMod(j1, d[0]), posMod(j2, d[1]), posMod(j3, d[2]), posMod(j4, d[3])};
                      index = coord2index(coord2, d, 4);
@@ -199,7 +199,7 @@ int createStencil(short stencil[][4], short p, short numk, short ks[], int maxN,
             }  // End j3
             for(j3 = -p+k; j3 <= p+k; ++j3){
                for(j4 = -p; j4 <= p; ++j4){
-                  short coord[4] = {j1, j2, j3, j4};
+                  short coord[4] = {j1, j2, j3-k, j4};
                   if(L2Norm(coord) <= p){
                      unsigned short coord2[4] = {posMod(j1, d[0]), posMod(j2, d[1]), posMod(j3, d[2]), posMod(j4, d[3])};
                      index = coord2index(coord2, d, 4);
